@@ -8,7 +8,7 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.span`
-  font-weight: lighter;
+  font-weight: 300;
 `;
 
 export const Button = styled.span`

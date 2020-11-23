@@ -4,13 +4,14 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: flex-end; */
+  position: relative;
   margin: 10px;
   padding: 20px;
   width: 100%;
-  max-height: 400px;
+  min-height: 400px;
   min-width: 100px;
   background: white;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 0);
 
   img {
     max-height: 200px;
@@ -19,14 +20,9 @@ export const Container = styled.div`
     margin-bottom: 15px;
   }
 
-  button {
-    background: rgb(255, 215, 0);
-    color: #111;
-    padding: 10px 20px;
-    border: none;
-    text-transform: uppercase;
-    margin-top: 10px;
-    cursor: pointer;
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.2);
   }
 `;
 
@@ -54,6 +50,13 @@ export const Price = styled.p`
 export const Rating = styled.p`
   .star {
     font-size: 15px;
-    color: rgb(255, 215, 0);
+    color: #ff9900;
   }
+`;
+
+export const ButtonContainer = styled.div`
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  align-items: center;
 `;

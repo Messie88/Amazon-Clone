@@ -10,6 +10,14 @@ export const Container = styled.div`
   position: sticky;
   top: 0;
   z-index: 100;
+  /* padding-bottom: 50px;
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
+  margin-bottom: -55px; */
+
+  a {
+    color: white;
+  }
 `;
 
 export const Logo = styled.img`
@@ -28,9 +36,9 @@ export const SearchContainer = styled.div`
   border-radius: 24px;
 
   .header_searchIcon {
-    padding: 5px;
+    padding: 5.5px;
     height: 22px;
-    background: #cd9042;
+    background: #ff9900;
   }
 `;
 
@@ -39,6 +47,11 @@ export const Input = styled.input`
   width: 100%;
   height: 12px;
   padding: 10px;
+  background: transparent;
+  border: none;
+  color: white;
+  border-bottom: 1px solid #ff9900;
+  outline: none;
 `;
 
 export const Nav = styled.div`

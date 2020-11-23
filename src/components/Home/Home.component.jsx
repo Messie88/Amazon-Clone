@@ -45,7 +45,7 @@ const Home = () => {
           rating={5}
         />
         <Product
-          id="12321341"
+          id="123210412222"
           title="New Apple iPad Pro (12.9-inch, Wi-Fi, - Silver (4th generation)"
           image="https://images-eu.ssl-images-amazon.com/images/I/816ctt5WV5L._AC_SX385_.jpg"
           price={598.9}
@@ -54,7 +54,7 @@ const Home = () => {
       </S.Row>
       <S.Row>
         <Product
-          id="2344593"
+          id="23445930000"
           title="Samsung LC49RG90SSUXEN 49' curved LEd Gaming monitor - Super Ultra Wide Dual WQHD 5120 x 1440"
           image="https://images-eu.ssl-images-amazon.com/images/I/6125mFrzr6L._AC_SX355_.jpg"
           price={1094.98}
