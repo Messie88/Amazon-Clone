@@ -26,7 +26,7 @@ const Checkout = () => {
               <S.CheckoutTableHeaderItem>Description</S.CheckoutTableHeaderItem>
               <S.CheckoutTableHeaderItem>Price</S.CheckoutTableHeaderItem>
               <S.CheckoutTableHeaderItem>Quantity</S.CheckoutTableHeaderItem>
-              <S.CheckoutTableHeaderItem></S.CheckoutTableHeaderItem>
+              <S.CheckoutTableHeaderItem>Remove</S.CheckoutTableHeaderItem>
             </S.CheckoutTableHeader>
             {basket.length > 0 ? (
               <tbody>
@@ -37,6 +37,7 @@ const Checkout = () => {
                     image={item.image}
                     price={item.price}
                     rating={item.rating}
+                    quantity={item.quantity}
                   />
                 ))}
               </tbody>

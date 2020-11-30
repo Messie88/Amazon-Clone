@@ -3,7 +3,7 @@ import StarIcon from "@material-ui/icons/Star";
 import CloseIcon from "@material-ui/icons/Close";
 
 import { useStateValue } from "../../../StateProvider";
-import { getTotalPerItem } from "../../../reducer";
+// import { getTotalPerItem } from "../../../reducer";
 
 import * as S from "./CheckoutProduct.styled";
 
@@ -36,7 +36,7 @@ const CheckoutProduct = ({ id, image, title, price, rating, quantity }) => {
         </S.Price>
       </td>
       <td>
-        <p>{getTotalPerItem(basket)}</p>
+        <p>{quantity}</p>
       </td>
       <td>
         <S.DeleteButton onClick={removeFromBasket}>

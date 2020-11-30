@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  margin: 0 10px;
+  margin: 0 20px;
   display: flex;
   flex-direction: column;
   font-size: 12px;
+  color: black;
 `;
 
 export const Title = styled.span`

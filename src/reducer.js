@@ -29,11 +29,6 @@ export const getBasketTotalPrice = (basket) =>
 export const getTotalItems = (basket) =>
   basket?.reduce((amount, item) => item.quantity + amount, 0);
 
-export const getTotalPerItem = (basket) =>
-  basket
-    .filter((basketItem, id) => basket.id === id)
-    .map((basketItem, id) => basketItem.quantity);
-
 //End: Selectors
 
 const reducer = (state = initialState, action) => {
