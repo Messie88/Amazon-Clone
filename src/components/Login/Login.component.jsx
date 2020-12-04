@@ -1,20 +1,39 @@
 import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 
 import Button from "../Button";
 import Input from "./Input";
+import { auth } from "../../firebase";
 
 import * as S from "./Login.styled";
 
 const Login = () => {
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordErr, setPasswordErr] = useState(false);
 
   const SignIn = (e) => {
     e.preventDefault();
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((auth) => history.push("/"))
+      .catch((error) => alert(error.message));
   };
 
-  const SignUp = () => {
-    console.log("register");
+  const SignUp = (e) => {
+    e.preventDefault();
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((auth) => console.log(auth))
+      .catch((error) => {
+        setPasswordErr(true);
+        alert(error.message);
+      });
+
+    if (auth) {
+      history.push("/");
+    }
   };
 
   return (
@@ -47,6 +66,7 @@ const Login = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            {passwordErr && <p>Password shoud have at least 6 characters</p>}
             <div className="form__bottom">
               <Button type="submit" text="Log In" onClick={SignIn} />
               <p>
