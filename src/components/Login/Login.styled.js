@@ -80,7 +80,27 @@ export const LefSubContainerButton = styled.div`
   }
 `;
 
+export const SignIn = styled.div`
+  padding: 20px 40px;
+  background: #91b4ed;
+
+  button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    border-bottom: 1px solid black;
+    padding: 0;
+    font-size: 1rem;
+    margin-left: 10px;
+  }
+`;
+
 export const FormTitle = styled.h3`
-  margin-bottom: 30px;
+  margin: 0 0 30px 0;
   font-size: 1.5rem;
+`;
+
+export const InputContainer = styled.div`
+  margin-bottom: 20px;
+  width: 100%;
 `;

@@ -18,7 +18,7 @@ export const Container = styled.div`
   }
 
   &.bg {
-    background: rgba(234, 237, 237);
+    background: white;
     width: 100%;
   }
 `;
@@ -35,13 +35,11 @@ export const SearchContainer = styled.div`
   display: flex;
   flex: 0.8;
   align-items: center;
-  border-radius: 24px;
-  border: 1px solid #ff9900;
-  overflow: hidden;
+  max-height: 40px;
 
   .header_searchIcon {
     padding: 5.5px;
-    height: 22px;
+    height: 26px;
     background: #ff9900;
   }
 `;

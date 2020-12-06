@@ -6,7 +6,7 @@ const Input = ({ label, type, value, onChange }) => {
   return (
     <S.Container>
       <input type={type} value={value} onChange={onChange} required />
-      <label htmlFor={label}>{label}</label>
+      <label>{label}</label>
     </S.Container>
   );
 };

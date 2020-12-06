@@ -9,9 +9,11 @@ import * as S from "./Login.styled";
 
 const Login = () => {
   const history = useHistory();
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [passwordErr, setPasswordErr] = useState(false);
+  const [isSignup, setIsSignup] = useState(false);
 
   const SignIn = (e) => {
     e.preventDefault();
@@ -25,9 +27,8 @@ const Login = () => {
     e.preventDefault();
     auth
       .createUserWithEmailAndPassword(email, password)
-      .then((auth) => console.log(auth))
+      .then((auth) => alert(auth))
       .catch((error) => {
-        setPasswordErr(true);
         alert(error.message);
       });
 
@@ -47,28 +48,61 @@ const Login = () => {
             the world's largest <strong>online marketplace</strong>
           </S.LefSubContainerParagraph>
           <h3>New here ?</h3>
-          <S.LefSubContainerButton onClick={SignUp}>
+          <S.LefSubContainerButton onClick={() => setIsSignup(true)}>
             Create your free Amazon account
           </S.LefSubContainerButton>
         </S.LefSubContainer>
         <div>
+          {isSignup && (
+            <S.SignIn>
+              Want to login ?{" "}
+              <button onClick={() => setIsSignup(false)}>Sign In</button>
+            </S.SignIn>
+          )}
           <form action="">
             <S.FormTitle>Log in to your account</S.FormTitle>
-            <Input
-              label="Email"
-              type="text"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <Input
-              label="Password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            {passwordErr && <p>Password shoud have at least 6 characters</p>}
+            {isSignup && (
+              <S.InputContainer>
+                <Input
+                  label="First Name"
+                  type="text"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                />
+              </S.InputContainer>
+            )}
+            {isSignup && (
+              <S.InputContainer>
+                <Input
+                  label="Last Name"
+                  type="text"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                />
+              </S.InputContainer>
+            )}
+            <S.InputContainer>
+              <Input
+                label="Email"
+                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </S.InputContainer>
+            <S.InputContainer>
+              <Input
+                label="Password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </S.InputContainer>
             <div className="form__bottom">
-              <Button type="submit" text="Log In" onClick={SignIn} />
+              <Button
+                type="submit"
+                text={isSignup ? "Sign Up" : "Log In"}
+                onClick={isSignup ? SignUp : SignIn}
+              />
               <p>
                 <input type="checkbox" name="" id="" required /> By logging in,
                 you agree to Amazon CLONE <strong>Conditions of Use </strong>{" "}

@@ -5,13 +5,15 @@ import { Link } from "react-router-dom";
 
 import NavItem from "./NavItem";
 import { useStateValue } from "../../StateProvider";
+import Input from "../Login/Input";
+import { auth } from "../../firebase";
 
 import * as S from "./Header.styled";
 
 import { getTotalItems } from "../../reducer";
 
 const Header = () => {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
 
   const [show, handleShow] = useState(false);
 
@@ -24,8 +26,11 @@ const Header = () => {
     return () => window.removeEventListener("scroll", () => {});
   }, []);
 
-  console.log(show);
-  //<div className={`nav ${show && "nav_black"}`}></div>
+  const handleAuth = () => {
+    if (user) {
+      auth.signOut();
+    }
+  };
 
   return (
     <S.Container className={`${show && "bg"}`}>
@@ -36,13 +41,18 @@ const Header = () => {
         />
       </Link>
       <S.SearchContainer>
-        <S.Input type="text" placeholder="Search for anything" />
+        {/* <S.Input type="text" placeholder="Search for anything" /> */}
+        <Input label="Search for anything" type="text" />
         <SearchIcon className="header_searchIcon" />
       </S.SearchContainer>
 
       <S.Nav>
-        <Link to="/login">
-          <NavItem title="Hello Guest" buttonTitle="Sign in" />
+        <Link to={!user && "/login"}>
+          <NavItem
+            onClick={handleAuth}
+            title="Hello Guest"
+            buttonTitle={user ? "Sign Out" : "Sign in"}
+          />
         </Link>
         <NavItem title="Returns" buttonTitle="& Orders" />
         <NavItem title="Your" buttonTitle="Prime" />
