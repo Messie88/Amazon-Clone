@@ -28,14 +28,15 @@ export const SubContainer = styled.div`
 
     .form__bottom {
       display: flex;
-      align-items: top;
+      width: 100%;
+      justify-content: space-around;
+    }
 
-      p {
-        margin: 0;
-        margin-left: 20px;
-        color: #373837;
-        font-size: 12px;
-      }
+    p {
+      margin: 0;
+      margin-bottom: 20px;
+      color: #373837;
+      font-size: 12px;
     }
   }
 `;
@@ -103,4 +104,35 @@ export const FormTitle = styled.h3`
 export const InputContainer = styled.div`
   margin-bottom: 20px;
   width: 100%;
+`;
+
+export const GoogleButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  outline: none;
+  border: 1px solid #91b4ed;
+  background: #91b4ed;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  padding-right: 30px;
+  cursor: pointer;
+
+  &:hover {
+    background: #669cf2;
+
+    img {
+      left: 0;
+    }
+  }
+
+  img {
+    height: 20px;
+    object-fit: contain;
+    margin-right: 10px;
+    position: relative;
+    left: -30px;
+    transition: all 0.2s ease-in-out;
+  }
 `;

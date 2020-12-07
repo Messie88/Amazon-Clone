@@ -14,6 +14,15 @@ export const Container = styled.tr`
     height: 180px;
     object-fit: contain;
   }
+
+  p {
+    span {
+      font-size: 1.2rem;
+      font-weight: bolder;
+      color: gray;
+      cursor: pointer;
+    }
+  }
 `;
 
 export const Title = styled.p`

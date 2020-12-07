@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import Button from "../Button";
 import Input from "./Input";
-import { auth } from "../../firebase";
+import { auth, signInWithGoogle } from "../../firebase";
 
 import * as S from "./Login.styled";
 
@@ -97,17 +97,24 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </S.InputContainer>
+            <p>
+              <input type="checkbox" name="" id="" required /> By logging in,
+              you agree to Amazon CLONE <strong>Conditions of Use </strong> and{" "}
+              <strong>Privacy Notice</strong>
+            </p>
             <div className="form__bottom">
               <Button
                 type="submit"
                 text={isSignup ? "Sign Up" : "Log In"}
                 onClick={isSignup ? SignUp : SignIn}
               />
-              <p>
-                <input type="checkbox" name="" id="" required /> By logging in,
-                you agree to Amazon CLONE <strong>Conditions of Use </strong>{" "}
-                and <strong>Privacy Notice</strong>
-              </p>
+              <S.GoogleButton onClick={signInWithGoogle}>
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+                  alt=""
+                />
+                Sign in with Google
+              </S.GoogleButton>
             </div>
           </form>
         </div>

@@ -35,10 +35,8 @@ const App = () => {
         });
       }
     });
-    // return () => {
-    //   cleanup;
-    // };
   }, []);
+
   return (
     <Router>
       <div className="App">

@@ -36,7 +36,9 @@ const CheckoutProduct = ({ id, image, title, price, rating, quantity }) => {
         </S.Price>
       </td>
       <td>
-        <p>{quantity}</p>
+        <p>
+          <span>&lt; </span> {quantity} <span> &gt;</span>
+        </p>
       </td>
       <td>
         <S.DeleteButton onClick={removeFromBasket}>
